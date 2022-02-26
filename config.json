@@ -1,0 +1,15 @@
+{
+  "param": {
+    "local_server": "True",
+    "local_db_url": "sqlite:///home\\lakshmi\\Practice\\python\\DB\\testDB.db",
+    "fb_url": "https://facebook.com/test",
+    "user": "rameswarmangaraj@gmail.com",
+    "pwd": "************",
+    "about": "This is my first blog on python",
+    "no_of_post": 3,
+    "blog_name": "CoderHeaven",
+    "username": "rameswar",
+    "password": "ram",
+    "upload_path": "home\\lakshmi\\Practice\\python\\DB\\uploaded"
+  }
+}

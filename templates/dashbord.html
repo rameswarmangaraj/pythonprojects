@@ -1,0 +1,54 @@
+<!-- template Inheritance jinja sysntax -->
+{% extends "layout.html" %}
+{% block body %}
+<!-- Page Header-->
+<header class="masthead" style="background-image: url('{{url_for('static',filename='assets/img/home-bg.jpg')}}')">
+    <div class="container position-relative px-4 px-lg-5">
+        <div class="row gx-4 gx-lg-5 justify-content-center">
+            <div class="col-md-10 col-lg-8 col-xl-7">
+                <div class="site-heading">
+                    <h1>Admin Panel</h1>
+                    <span class="subheading">Here you can add/remove post</span>
+                </div>
+            </div>
+        </div>
+    </div>
+</header>
+<!-- Main Content-->
+<h1>Basic Action</h1>
+<a href="/edit/0"><button class="btn btn-primary text-uppercase">Add Post</button></a>
+<a href="/logout"><button class="btn btn-primary text-uppercase">Logout</button></a>
+<hr />
+<h1>Upload a file</h1>
+    <form action="/upload" method="post" enctype="multipart/form-data">
+        <input type="file" name="imgfile"/>
+        <button type="submit" class="btn btn-primary text-uppercase">upload</button>
+    </form>
+<hr />
+<h1>Edit Post</h1>
+<div class="container px-4 px-lg-5">
+    <table class="table">
+        <thead>
+            <tr>
+                <th scope="col">sno</th>
+                <th scope="col">title</th>
+                <th scope="col">date</th>
+                <th scope="col">Edit</th>
+                <th scope="col">Delete</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for postitem in posts %}
+            <tr>
+                <th scope="row">{{postitem.sno}}</th>
+                <td>{{postitem.title}}</td>
+                <td>{{postitem.date}}</td>
+                <td><a href="/edit/{{postitem.sno}}"><button class="btn btn-primary text-uppercase">Edit</button></a>
+                </td>
+                <td><a href="/delete/{{postitem.sno}}"><button class="btn btn-primary text-uppercase">Delete</button></a></td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</div>
+{% endblock %}

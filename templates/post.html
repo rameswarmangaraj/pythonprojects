@@ -1,0 +1,49 @@
+{% extends "layout.html" %}
+{% block body %}
+        <!-- Page Header-->
+        <header class="masthead" style="background-image: url('{{url_for('static',filename='assets/img/post-bg.jpg')}}')">
+            <div class="container position-relative px-4 px-lg-5">
+                <div class="row gx-4 gx-lg-5 justify-content-center">
+                    <div class="col-md-10 col-lg-8 col-xl-7">
+                        <div class="post-heading">
+                            <h1>{% if postRes is defined %}
+                                {{postRes.title}}
+                                {% else %}
+                                Default title
+                                {% endif %}
+                            </h1>
+                            <h2 class="subheading">{% if postRes is defined %}
+                                {{postRes.subtitel}}
+                                {% else %}
+                                Default title
+                                {% endif %}</h2>
+                            <span class="meta">
+                                Posted by
+                                <a href="#!">Admin</a>
+                                {% if postRes is defined %}
+                                {{postRes.date}}
+                                {% else %}
+                                Default date
+                                {% endif %}
+                            </span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </header>
+        <!-- Post Content-->
+        <article class="mb-4">
+            <div class="container px-4 px-lg-5">
+                <div class="row gx-4 gx-lg-5 justify-content-center">
+                    <div class="col-md-10 col-lg-8 col-xl-7">
+                        <p>{% if postRes is defined %}
+                            {{postRes.content}}
+                            {% else %}
+                             default content
+                            {% endif %}
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </article>
+        {% endblock %}
