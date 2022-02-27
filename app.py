@@ -1,4 +1,4 @@
-from flask import Flask, render_template, request, session,redirect
+from flask import Flask, render_template, request, session,redirect,flash
 from flask_sqlalchemy import SQLAlchemy
 from datetime import datetime
 import json
@@ -67,6 +67,8 @@ class Post(db.Model):
 
 @app.route("/")
 def home():
+    flash("This is flash message","success")
+    flash("This is 2nd flash message","danger")
     db.create_all()
     posts = Post.query.filter_by().all()
     last=len(posts)/params['no_of_post']
